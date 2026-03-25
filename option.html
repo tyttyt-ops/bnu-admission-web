@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京师范大学导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background-color: white;
+            color: #8e44ad;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            min-width: 200px;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background-color: #f1c40f;
+            color: white;
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="./北师美食/food.html" class="nav-button">校园美食</a>
+        <a href="./北师美景/flower.html" class="nav-button">美景速览</a>
+    </div>
+</body>
+</html>

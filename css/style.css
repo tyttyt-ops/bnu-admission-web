@@ -1,0 +1,18 @@
+h1{
+    font-size: 30px;
+    display: inline-block;
+    border:3px dotted skyblue ;
+    padding:30px;
+    margin: 20px;
+    color:rgb(214, 93, 180);
+    left:500px;
+    position:relative;
+    text-align:center;
+    }
+h1,h2,h3{
+    display: flex;
+    justify-content: space-evenly;
+    color:rgb(26, 80, 143);
+    background-color: rgb(106, 183, 234);
+    text-align:center;
+}

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京师范大学报考指导网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8d0e0e',
+                        secondary: '#30a6c4',
+                        accent: '#d65db4',
+                        light: '#f0f7ff',
+                        dark: '#0f3460'
+                    },
+                    fontFamily: {
+                        kai: ['"KaiTi"', '"STKaiti"', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light font-kai text-dark min-h-screen flex flex-col">
+    <!-- 顶部通知栏 -->
+    <div class="bg-primary text-white text-center py-2 px-4">
+        <p class="text-sm md:text-base">欢迎访问北京师范大学报考指导网站 | 2025年招生信息已更新</p>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav id="navbar" class="bg-secondary/90 text-white sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+            <div class="flex items-center">
+                <i class="fa fa-university text-2xl mr-3"></i>
+                <span class="text-xl md:text-2xl font-bold">北京师范大学</span>
+            </div>
+            <div class="hidden md:flex space-x-6 mt-2 md:mt-0">
+                <a href="#home" class="hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fa fa-home mr-1"></i> 首页
+                </a>
+                <a href="#scores" class="hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fa fa-bar-chart mr-1"></i> 录取分数
+                </a>
+                <a href="#resources" class="hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fa fa-book mr-1"></i> 资源中心
+                </a>
+                <a href="#campus" class="hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fa fa-camera mr-1"></i> 校园风采
+                </a>
+                <a href="#video" class="hover:text-accent transition-colors duration-300 flex items-center">
+                    <i class="fa fa-play-circle mr-1"></i> 招生视频
+                </a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-secondary/95 bg-blur">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#home" class="block py-2 hover:text-accent transition-colors duration-300">首页</a>
+                <a href="#scores" class="block py-2 hover:text-accent transition-colors duration-300">录取分数</a>
+                <a href="#resources" class="block py-2 hover:text-accent transition-colors duration-300">资源中心</a>
+                <a href="#campus" class="block py-2 hover:text-accent transition-colors duration-300">校园风采</a>
+                <a href="#video" class="block py-2 hover:text-accent transition-colors duration-300">招生视频</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="北师校徽.jpg" alt="北京师范大学校园风景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/40"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2rem,5vw,4rem)] font-bold text-white mb-6 leading-tight text-shadow">
+                积水潭女子师专欢迎您！
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.5rem)] text-white/90 max-w-3xl mx-auto mb-8">
+                北京师范大学是教育部直属重点大学，是一所以教师教育、教育科学和文理基础学科为主要特色的著名学府。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#scores" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    查询录取分数
+                </a>
+                <a href="#video" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    观看招生视频
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#scores" class="text-white text-3xl">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </section>
+
+   
+
+    <!-- 录取分数区域 -->
+    <section id="scores" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">北京师范大学往年录取分数线</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">查询各省、各专业录取分数线及位次，助力您了解报考机会</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-light rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-secondary mb-4 flex items-center">
+                        <i class="fa fa-line-chart mr-2"></i> 2024年各省最低分数线
+                    </h3>
+                    <p class="text-gray-700 mb-4">查看北京师范大学近年在全国各省的最低录取分数线及对应位次，了解各省份的录取情况。</p>
+                    <a href="china.html" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <div class="bg-light rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-secondary mb-4 flex items-center">
+                        <i class="fa fa-th-list mr-2"></i> 北京市2022-2024年各专业最低分数线
+                    </h3>
+                    <p class="text-gray-700 mb-4">了解北京师范大学在北京市各专业的录取分数线，为您的专业选择提供参考。</p>
+                    <a href="zhexian.html" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                   
+                </div>
+
+                 <div class="bg-light rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-secondary mb-4 flex items-center">
+                        <i class="fa fa-th-list mr-2"></i> 2022-2024年北京师范大学各省录取分数线分析
+                    </h3>
+                    <p class="text-gray-700 mb-4">分析分数线变化趋势，为您的专业选择提供参考。</p>
+                    <a href="分数线报告.html" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                 <div class="bg-light rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-secondary mb-4 flex items-center">
+                        <i class="fa fa-th-list mr-2"></i> 北京师范大学各专业词云图
+                    </h3>
+                    <p class="text-gray-700 mb-4">直观展示北京师范大学各专业院系。</p>
+                    <a href="ciyun.html" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+            
+
+            <!-- 分数查询表单 -->
+            <div class="bg-secondary/10 rounded-xl p-8 max-w-3xl mx-auto shadow-lg">
+                <h3 class="text-2xl font-bold text-dark mb-6 text-center">录取分数预测</h3>
+                <form id="score-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="province" class="block text-gray-700 font-medium mb-2">生源地</label>
+                            <select id="province" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                                <option value="">请选择省份</option>
+                                <option value="beijing">北京市</option>
+                                <option value="shanghai">上海市</option>
+                                <option value="tianjin">天津市</option>
+                                <option value="chongqing">重庆市</option>
+                                <option value="hebei">河北省</option>
+                                <option value="shanxi">山西省</option>
+                                <option value="beijing">北京市</option>
+                                <option value="shanghai">上海市</option>
+                                <option value="tianjin">天津市</option>
+                                <option value="chongqing">重庆市</option>
+                                <option value="hebei">河北省</option>
+                                <option value="shanxi">山西省</option>
+                                  <option value="beijing">北京市</option>
+                                <option value="shanghai">上海市</option>
+                                <option value="tianjin">天津市</option>
+                                <option value="chongqing">重庆市</option>
+                                <option value="hebei">河北省</option>
+                                <option value="shanxi">河南省</option>
+                                <option value="beijing">山西省</option>
+                                <option value="shanghai">陕西省</option>
+                                <option value="tianjin">甘肃省</option>
+                                <option value="chongqing">青海省</option>
+                                <option value="hebei">宁夏回族自治区</option>
+                                <option value="shanxi">新疆维吾尔自治区</option>
+                                <option value="beijing">西藏自治区</option>
+                                <option value="shanghai">湖南省</option>
+                                <option value="tianjin">湖北省</option>
+                                <option value="chongqing">福建省</option>
+                                <option value="hebei">广东省</option>
+                                <option value="shanxi">江西省</option>
+                                <option value="beijing">云南省</option>
+                                <option value="shanghai">贵州省</option>
+                                <option value="tianjin">海南省</option>
+                                <option value="chongqing">四川省</option>
+                                <option value="hebei">山东省</option>
+                                <option value="shanxi">安徽省</option>
+                                <option value="shanxi">江苏省</option>
+                                <option value="beijing">浙江省</option>
+                                <option value="shanghai">甘肃省</option>
+                                <option value="tianjin">广西壮族自治区</option>
+                                <option value="chongqing">内蒙古自治区</option>
+                                <option value="hebei">黑龙江省</option>
+                                <option value="shanxi">吉林省</option>
+                                <option value="shanxi">辽宁省</option>
+                                <!-- 其他省份选项 -->
+                            </select>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">选课组合</label>
+                            <div class="flex space-x-4 mt-2">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="subject" class="form-radio text-primary focus:ring-primary h-5 w-5">
+                                    <span class="ml-2">物理组</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="subject" class="form-radio text-primary focus:ring-primary h-5 w-5">
+                                    <span class="ml-2">历史组</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="score" class="block text-gray-700 font-medium mb-2">高考分数</label>
+                        <input type="number" id="score" placeholder="请输入您的高考分数" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                    </div>
+                    <div class="text-center">
+                        <button type="button" id="submit-btn" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                            查询预测结果
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 资源中心区域 -->
+    <section id="resources" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">北京师范大学资源获取</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">探索北师大丰富的学习资源和官方渠道</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 免费资源卡片 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/201/800/600" alt="北京师范大学新生必备知识宝典" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">北师免费资源</h3>
+                        <p class="text-gray-600 mb-4">为新生提供免费资源资源。</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">正版软件</span>
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">文献搜索</span>
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">会议资源</span>
+                        </div>
+                        <a href="https://mp.weixin.qq.com/s/sNCT11_fjHWeoRe3P73dNQ" target="blank" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 线上资源卡片 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="小鸦.jpg" alt="北京师范大学校内线上资源" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">校内线上资源大盘点</h3>
+                        <p class="text-gray-600 mb-4">整合北京师范大学丰富的线上学习资源，包括图书馆资源、学术数据库、在线课程等。</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">校园网</span>
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">手机NFC绑定校园卡</span>
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">师大云盘</span>
+                        </div>
+                        <a href="https://mp.weixin.qq.com/s/qwD2bwinDIAvSI5YVdW2wQ" target="_blank" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+
+                <!-- 校园美食卡片 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1675688968895-6bef38d02bba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8JUU3JUJFJThFJUU5JUEzJTlGfGVufDB8fDB8fHww">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">校园美食线上点单</h3>
+                        <p class="text-gray-600 mb-4">为您介绍北京    师范大学小吃街二维码，让您足不出户就能享受美食</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">小吃街</span>
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">校园美食</span>
+                            <span class="bg-secondary/20 text-secondary text-xs px-3 py-1 rounded-full">线上点单</span>
+                        </div>
+                        <a href="https://mp.weixin.qq.com/s/pVMZa1DcyOoqPz7mtbYb9g" target="blank" target="_blank" class="text-primary hover:text-primary/80 font-medium inline-flex items-center">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 官方网站列表 -->
+            <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-dark mb-6">北京师范大学官方网站</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="https://www.bnu.edu.cn/" target="_blank" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+                        <i class="fa fa-university text-2xl text-primary mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-dark">北京师范大学官网</h4>
+                            <p class="text-gray-500 text-sm">学校官方门户网站</p>
+                        </div>
+                    </a>
+                    <a href="https://admission.bnu.edu.cn/" target="_blank" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+                        <i class="fa fa-graduation-cap text-2xl text-primary mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-dark">本科招生网</h4>
+                            <p class="text-gray-500 text-sm">本科招生信息发布平台</p>
+                        </div>
+                    </a>
+                    <a href="https://jwb.bnu.edu.cn/" target="_blank" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+                        <i class="fa fa-book text-2xl text-primary mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-dark">教务部</h4>
+                            <p class="text-gray-500 text-sm">教学管理与服务平台</p>
+                        </div>
+                    </a>
+                    <a href="https://youth.bnu.edu.cn/" target="_blank" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+                        <i class="fa fa-users text-2xl text-primary mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-dark">共青团北师大委员会</h4>
+                            <p class="text-gray-500 text-sm">校园文化与社团活动</p>
+                        </div>
+                    </a>
+                    <a href="https://one.bnu.edu.cn/" target="_blank" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+                        <i class="fa fa-laptop text-2xl text-primary mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-dark">数字京师信息门户</h4>
+                            <p class="text-gray-500 text-sm">校内综合服务平台</p>
+                        </div>
+                    </a>
+                    <a href="http://www.lib.bnu.edu.cn/" target="_blank" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all">
+                        <i class="fa fa-book text-2xl text-primary mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-dark">图书馆</h4>
+                            <p class="text-gray-500 text-sm">学术资源与服务</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校园风采区域 -->
+    <section id="campus" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">北京师范大学校园风采</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">探索北师大美丽的校园环境和标志性建筑</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 cursor-pointer">
+                    <img src="前主楼图片.jpg" alt="北京师范大学前主楼" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">前主楼</h3>
+                            <p class="text-white/80 text-sm">北京师范大学的标志性建筑,始建于1952年</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 cursor-pointer">
+                    <img src="邱季端体育馆图片.jpg" alt="北京师范大学邱季端体育馆" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">邱季端体育馆</h3>
+                            <p class="text-white/80 text-sm">现代化体育设施，举办各类体育赛事和活动</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 cursor-pointer">
+                    <img src="京师学堂图片.jpg" alt="北京师范大学京师学堂" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">京师学堂</h3>
+                            <p class="text-white/80 text-sm">学校举行重要仪式和活动的场所</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 cursor-pointer">
+                    <img src="后主楼图片.jpg" alt="北京师范大学后主楼" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">后主楼</h3>
+                            <p class="text-white/80 text-sm">学校主要教学和科研办公楼</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="option.html" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    发现校园宝藏(唯有美食与美景不可辜负) <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招生视频区域 -->
+    <section id="video" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">北京师范大招生宣传片</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto">全方位了解北京师范大学的校园文化、学科特色和师生风采</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-black rounded-xl overflow-hidden shadow-2xl">
+                <div class="relative pt-[56.25%]">
+                    <video id="admission-video" class="absolute inset-0 w-full h-full" controls poster="https://picsum.photos/id/208/1200/675">
+                        <source src="北京师范大学招生宣传片.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">北京师范大学2025年招生宣传片</h3>
+                    <p class="text-gray-400">时长: 6:09 | 更新时间: 2025-07-10</p>
+                </div>
+            </div>
+
+
+
+
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-play-circle text-2xl text-primary mr-3"></i>
+                        <h4 class="font-bold text-lg"><a href="https://dwxgb.bnu.edu.cn/jxj/bksxsjz/index.htm">本科生奖学金</a></h4>
+                    </div>
+                    <p class="text-gray-400">了解北师大完备的奖助体系及评选方法</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-play-circle text-2xl text-primary mr-3"></i>
+                        <h4 class="font-bold text-lg"><a href="https://kczx.bnu.edu.cn/www/dd/vue/spa/jw-pyfa#/pyfa">培养方案</a></h4>
+                    </div>
+                    <p class="text-gray-400">了解北京师范大学各专业需要修读的课程</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors cursor-pointer">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-play-circle text-2xl text-primary mr-3"></i>
+                        <h4 class="font-bold text-lg"><a href="https://bnu.icourses.cn/"></a>智慧课程</h4>
+                    </div>
+                    <p class="text-gray-400">探索北师大在慕课已上线的课程</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-university mr-2"></i> 北京师范大学
+                    </h3>
+                    <p class="text-gray-400 mb-4">北京师范大学是教育部直属重点大学，是一所以教师教育、教育科学和文理基础学科为主要特色的著名学府。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-wechat text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#scores" class="text-gray-400 hover:text-white transition-colors">录取分数</a></li>
+                        <li><a href="#resources" class="text-gray-400 hover:text-white transition-colors">资源中心</a></li>
+                        <li><a href="#campus" class="text-gray-400 hover:text-white transition-colors">校园风采</a></li>
+                        <li><a href="#video" class="text-gray-400 hover:text-white transition-colors">招生视频</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">北京市海淀区新街口外大街19号</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">010-58807962</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">zsb@bnu.edu.cn</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">订阅招生资讯</h3>
+                    <p class="text-gray-400 mb-4">订阅我们的招生资讯，获取最新招生动态</p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱地址" class="px-4 py-2 rounded-l-lg focus:outline-none text-dark flex-grow">
+                        <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-r-lg transition-colors">
+                            订阅
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 北京师范大学 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // 表单提交处理
+        const submitBtn = document.getElementById('submit-btn');
+        
+        submitBtn.addEventListener('click', () => {
+            const province = document.getElementById('province').value;
+            const subject = document.querySelector('input[name="subject"]:checked');
+            const score = document.getElementById('score').value;
+            
+            if (!province || !subject || !score) {
+                alert('请填写完整信息！');
+                return;
+            }
+            
+            // 模拟提交成功
+            setTimeout(() => {
+                alert('查询成功！我们已为您生成个性化的报考建议。');
+            }, 500);
+        });
+        
+        // 视频播放控制
+        const video = document.getElementById('admission-video');
+        
+        video.addEventListener('play', () => {
+            // 播放时的逻辑
+        });
+        
+        // 页面加载完成后显示欢迎信息
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                alert('欢迎访问北京师范大学报考指导网站！');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+    

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京师范大学校园美景</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #8e44ad;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1c40f;
+            font-size: 2.5em;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .photo-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .photo-card h3 {
+            padding: 15px;
+            color: #8e44ad;
+            font-size: 1.2em;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        
+        .photo-card h3 i {
+            margin-right: 8px;
+            color: #f1c40f;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>北京师范大学校园美景</h1>
+        
+        <div class="gallery">
+            <div class="photo-card">
+                <img src="碧桃花.jpg" alt="碧桃花">
+                <h3><i class="fas fa-seedling"></i> 碧桃花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="菊花.jpg" alt="菊花">
+                <h3><i class="fas fa-seedling"></i> 菊花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="连翘花.jpg" alt="连翘花">
+                <h3><i class="fas fa-seedling"></i> 连翘花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="泡桐花.jpg" alt="泡桐花">
+                <h3><i class="fas fa-seedling"></i> 泡桐花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="秋景.jpg" alt="秋景">
+                <h3><i class="fas fa-seedling"></i> 秋景</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="桃花.jpg" alt="桃花">
+                <h3><i class="fas fa-seedling"></i> 桃花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="杏花.jpg" alt="杏花">
+                <h3><i class="fas fa-seedling"></i> 杏花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="樱花.jpg" alt="樱花">
+                <h3><i class="fas fa-seedling"></i> 樱花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="玉兰花.jpg" alt="玉兰花">
+                <h3><i class="fas fa-seedling"></i> 玉兰花</h3>
+            </div>
+            
+            <div class="photo-card">
+                <img src="郁金香.jpg" alt="郁金香">
+                <h3><i class="fas fa-seedling"></i> 郁金香</h3>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 北京师范大学 | 校园美景展示</p>
+        </footer>
+    </div>
+</body>
+</html>

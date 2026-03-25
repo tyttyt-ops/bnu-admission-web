@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京师范大学美食地图</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f9f7fe 0%, #e3f2fd 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1:after {
+            content: "";
+            display: block;
+            width: 80%;
+            height: 5px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-top: 15px;
+            max-width: 700px;
+            margin: 15px auto 0;
+            line-height: 1.8;
+        }
+        
+        .food-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .food-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .food-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: all 0.4s ease;
+        }
+        
+        .food-card:hover .food-img {
+            transform: scale(1.05);
+        }
+        
+        .food-info {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            background: white;
+        }
+        
+        .food-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .food-title i {
+            margin-right: 10px;
+            color: #e74c3c;
+        }
+        
+        .food-desc {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tag {
+            background: #e0f7fa;
+            color: #00838f;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .location {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #e74c3c;
+            display: flex;
+            align-items: center;
+        }
+        
+        .location i {
+            margin-right: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            color: #7f8c8d;
+            font-size: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .map-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(249, 154, 158, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .map-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(249, 154, 158, 0.6);
+        }
+        
+        .map-btn i {
+            margin-left: 8px;
+        }
+        
+        .campus {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .food-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-utensils"></i> 北京师范大学美食地图</h1>
+            <p class="subtitle">探索北师大校园内的美味佳肴！从传统小吃到国际美食，从学生食堂到特色餐厅，这里汇集了北师大最受欢迎的美食场所，满足你的味蕾需求。</p>
+            <a href="#" class="map-btn">查看校园美食地图 <i class="fas fa-map-marked-alt"></i></a>
+        </header>
+        
+        <div class="food-gallery">
+            <!-- 薛记炒货 -->
+            <div class="food-card">
+                <img src="薛记炒货.jpg" alt="薛记炒货" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-seedling"></i> 薛记炒货</h3>
+                    <p class="food-desc">新鲜炒制的坚果和干果，香脆可口，是课间小憩的健康零食选择。</p>
+                    <div class="tags">
+                        <span class="tag">休闲零食</span>
+                        <span class="tag">健康食品</span>
+                        <span class="tag">坚果炒货</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：西门附近</div>
+                </div>
+            </div>
+            
+            <!-- 土豆泥拌面 -->
+            <div class="food-card">
+                <img src="土豆泥拌面.jpg" alt="土豆泥拌面" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-utensil-spoon"></i> 土豆泥拌面</h3>
+                    <p class="food-desc">绵密的土豆泥与筋道的面条完美融合，搭配特制酱料，口感丰富，饱腹感强。</p>
+                    <div class="tags">
+                        <span class="tag">主食</span>
+                        <span class="tag">特色面食</span>
+                        <span class="tag">学生最爱</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：新乐群食堂三楼</div>
+                </div>
+            </div>
+            
+            <!-- 牛肉面与煎饼 -->
+            <div class="food-card">
+                <img src="牛肉面与煎饼.jpg" alt="牛肉面与煎饼" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-bread-slice"></i> 牛肉面与煎饼</h3>
+                    <p class="food-desc">传统兰州牛肉面搭配现制煎饼，汤鲜味美，煎饼香脆，完美组合。</p>
+                    <div class="tags">
+                        <span class="tag">早餐优选</span>
+                        <span class="tag">经典搭配</span>
+                        <span class="tag">快捷美食</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：学五食堂</div>
+                </div>
+            </div>
+            
+            <!-- 智慧食堂自选菜 -->
+            <div class="food-card">
+                <img src="智慧食堂自选菜.jpg" alt="智慧食堂自选菜" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-robot"></i> 智慧食堂自选菜</h3>
+                    <p class="food-desc">采用智能结算系统的自选食堂，数十种菜品每日更新，自由搭配，营养均衡。</p>
+                    <div class="tags">
+                        <span class="tag">智能科技</span>
+                        <span class="tag">多样选择</span>
+                        <span class="tag">健康搭配</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：新乐群食堂二楼</div>
+                </div>
+            </div>
+            
+            <!-- 莜面栲栳栳 -->
+            <div class="food-card">
+                <img src="西北美食进校园——莜面栲栳栳.jpg" alt="莜面栲栳栳" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-mountain"></i> 西北美食进校园——莜面栲栳栳</h3>
+                    <p class="food-desc">来自山西的传统面食，莜面制作，造型独特，搭配特制酱料，风味独特。</p>
+                    <div class="tags">
+                        <span class="tag">西北特色</span>
+                        <span class="tag">传统美食</span>
+                        <span class="tag">地方风味</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：学五食堂二楼（限时）</div>
+                </div>
+            </div>
+            
+            <!-- 西北风味餐厅 -->
+            <div class="food-card">
+                <img src="西北风味餐厅.jpg" alt="西北风味餐厅" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-drumstick-bite"></i> 西北风味餐厅</h3>
+                    <p class="food-desc">提供正宗西北风味菜肴，包括羊肉泡馍、肉夹馍、凉皮等特色美食。</p>
+                    <div class="tags">
+                        <span class="tag">地方菜系</span>
+                        <span class="tag">特色餐厅</span>
+                        <span class="tag">人气美食</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：学五食堂上方，清真餐厅附近</div>
+                </div>
+            </div>
+            
+            <!-- 沙拉与日料 -->
+            <div class="food-card">
+                <img src="沙拉与日料.jpg" alt="沙拉与日料" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-fish"></i> 沙拉与日料</h3>
+                    <p class="food-desc">新鲜蔬菜沙拉搭配精致日式料理，健康轻食与异国风味的完美结合。</p>
+                    <div class="tags">
+                        <span class="tag">轻食健康</span>
+                        <span class="tag">日式料理</span>
+                        <span class="tag">国际风味</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：学六食堂二楼</div>
+                </div>
+            </div>
+            
+            <!-- 麻辣烫 -->
+            <div class="food-card">
+                <img src="麻辣烫.jpg" alt="麻辣烫" class="food-img">
+                <div class="food-info">
+                    <h3 class="food-title"><i class="fas fa-pepper-hot"></i> 麻辣烫</h3>
+                    <p class="food-desc">自选食材，现煮现吃，麻辣鲜香，冬日暖身，夏日开胃的绝佳选择。</p>
+                    <div class="tags">
+                        <span class="tag">川味美食</span>
+                        <span class="tag">自选食材</span>
+                        <span class="tag">人气爆款</span>
+                    </div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> 位置：学六食堂二楼</div>
+                </div>
+            </div>
+            
+            <!-- 其他美食卡片类似结构... -->
+        </div>
+        
+        <footer>
+            <p>北京师范大学后勤集团 &copy; 2023 | 让每一位学子享受美食的快乐</p>
+            <p>主校区：<span class="campus">海淀校区</span> | 分校区：<span class="campus">珠海校区</span></p>
+        </footer>
+    </div>
+</body>
+</html>
